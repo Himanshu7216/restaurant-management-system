@@ -159,3 +159,11 @@
         get name of fields add assign value to $data
         redirect view('admin.view_food')
 
+9. display data in home page
+
+    <!-- in home\blog.blade.php 
+     put div into foreach loop to show food table info like 'image','price','title','details' -->
+
+    <!-- in HomeController return index.blade.php with table data -->
+    $data =Food::all();
+    return view('home.index',compact('data'));
