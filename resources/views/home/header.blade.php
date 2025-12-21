@@ -28,22 +28,21 @@
                     <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
                 </li>
                 @if (Route::has('login'))
-
-                @auth
-                <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                    <input type="submit" value="Logout" class="btn btn-primary ml-xl-4">
-                </form>
+                    @auth
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <input type="submit" value="Logout" class="btn btn-primary ml-xl-4">
+                        </form>
 
                 @else
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                </li>
-                @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
+                    @endauth
                 @endif
                 
             </ul>

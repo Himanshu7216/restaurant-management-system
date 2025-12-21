@@ -11,12 +11,12 @@
 
      <!-- set database environment in .env file 
      & create database  -->
-     <!-- DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=MyRestorant
-     DB_USERNAME=root
-     DB_PASSWORD= -->
+     <!--   DB_CONNECTION=mysql
+            DB_HOST=127.0.0.1
+            DB_PORT=3306
+            DB_DATABASE=MyRestorant
+            DB_USERNAME=root
+            DB_PASSWORD= -->
 
     php artisan make:migration create_users_table
      <!-- edit table -->
@@ -26,7 +26,7 @@
 
 1.  edit register/login setup
 
-    view\register.blage.php
+    view\Auth\register.blage.php
     <!-- add two fields (phone,address) -->
     App\Actions\Fortify\CreateNewUser.php
     <!-- add fields and validation -->
@@ -102,6 +102,7 @@
 
     <!-- create view\admin\add_food.blade.php file   -->
     create form with fields 'title','details','price','image'
+    give url in form action
 
     <!-- give url ('upload_food') to form and create new route -->
     Route::post('/upload_food',[AdminController::class,'upload_food']);
@@ -129,7 +130,7 @@
 7.delete data 
 
     <!-- in table add delete link and set route url -->
-        <a class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this food')" href="{{url('/delete_food',$data->id)}}">Delete</a>
+        <a  href="{{url('/delete_food',$data->id)}}">Delete</a>
 
     <!-- create new route -->
     Route::get('/delete_food/{id}',[AdminController::class,'delete_food']);
@@ -139,4 +140,22 @@
         then delete and redirect
 
 
+8.Update data 
+   
+    <!-- in table add Update link and set route url -->
+    <a  href="{{url('/update_food',$data->id)}}">Update</a>
+
+    <!-- create new route -->
+    Route::get('/update_food/{id}',[AdminController::class,'update_food']);
+
+    <!-- create another file view\update_food.blade.php then copy paste add_food.blade.php -->
+    change form url to 'edit_food' and edit
+
+    <!-- create new route -->
+    Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
+
+    in edit_food(Request $request,$id)
+        get table 'Food' in $data
+        get name of fields add assign value to $data
+        redirect view('admin.view_food')
 

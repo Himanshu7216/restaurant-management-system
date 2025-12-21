@@ -13,8 +13,8 @@ class HomeController extends Controller
     }
     public function index(){
 
-        if(Auth::id()){
-            $usertype=Auth()->user()->usertype;
+        if(Auth::id()){     //check user login or not
+            $usertype=Auth()->user()->usertype; //check usertype
             if($usertype=='user'){
                 return view('home.index');
             }else{
