@@ -137,7 +137,7 @@
 
     <!-- in delete_food($id)  -->
         find id from table 'Food'
-        then delete and redirect
+        then delete and redirect back
 
 
 8.Update data 
@@ -167,3 +167,59 @@
     <!-- in HomeController return index.blade.php with table data -->
     $data =Food::all();
     return view('home.index',compact('data'));
+
+10. Add Food to Cart
+
+    <!-- create new table 'cart' -->
+    php artisan make:model Cart -m
+    <!-- add column name in Card.php and migrations 'create_carts_table' then migrate -->
+     php artisan migrate
+
+    <!-- in foreach loop create form with number input and add to card button then give url 'add_cart' -->
+    <!-- create new route -->
+    Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
+
+    <!-- in add_cart() -->
+        if(Auth::id()) ?         //check user id exist or not
+            <!-- get table 'Food' in $data
+            get name of fields add assign value to $data
+            redirect -> back -->
+        :
+            <!-- redirect -> login -->
+    
+    <!-- add one more column to cart 'userid' -->
+    php artisan make:migration add_userid_field_to_carts
+    <!-- add coumns to migration add_userid_field_to_carts.php -->
+     php artisan migrate
+
+
+11. create an my cart link
+
+    <!-- on header if user logged in show Card link and set url 'my_cart' -->
+    <!-- create new route -->
+    Route::get('/my_cart',[HomeController::class,'my_cart']);
+    in my_cart()
+         $user_id=Auth::user()->id;          //check user id exist or not
+         <!-- match cart->userid     =     Auth->user_id  -->
+        $data=Cart::where('userid','=',$user_id)->get();
+
+        <!-- return (home.my_cart) with data -->
+
+    create new file 'mycart.blade.php'
+
+        <!-- add navbar and create new table with column 'Food title','Price','Quantity','Image' -->
+
+12. remove data from cart
+
+       <!-- in table add remove link and set route url -->
+        <a  href="{{url('/remove_cart',$data->id)}}">Remove</a>
+
+    <!-- create new route -->
+    Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
+
+    <!-- in remove_cart($id)  -->
+        find id from table 'Food'
+        then delete and redirect back
+
+    <!-- find total price using php openings and closing  -->
+

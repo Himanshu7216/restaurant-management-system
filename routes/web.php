@@ -16,6 +16,12 @@ Route::get('/delete_food/{id}',[AdminController::class,'delete_food']);
 Route::get('/update_food/{id}',[AdminController::class,'update_food']);
 Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
 
+Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
+Route::get('/my_cart',[HomeController::class,'my_cart']);
+Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
