@@ -27,6 +27,10 @@
                   <a href="{{url('orders')}}"> <i class="icon-logout"></i>Orders </a>
                 </li>
 
+                <li>
+                  <a href="{{url('reservation')}}"> <i class="icon-logout"></i>Reservation </a>
+                </li>
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Book;
 use App\Models\Order;
 
 
@@ -87,5 +88,10 @@ class AdminController extends Controller
         $data->delivery_status="Canceled";
         $data->save();
         return redirect()->back();
+    }
+
+    public function reservation(){
+        $book=Book::all();
+        return view('admin.reservation',compact('book'));
     }
 }

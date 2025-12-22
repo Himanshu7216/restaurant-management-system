@@ -300,3 +300,16 @@
             total_food,        \      give  all from Food table
             total_order,       /      give  all from Order table
             total_deliverd    /       give 'delivery_status'='Deliverd' from Order table
+
+18. Show Booked data in Admin panel
+    in view\admin\sidebar.blade.php
+        <!-- create new tag for Reservation and set url 'reservation' to navigation -->
+
+    <!-- create new route -->
+    Route::get('/reservation',[AdminController::class,'reservation']);
+
+    in reservation()
+        <!-- get data from 'Book' table and return view(admin.reservation) with data -->
+    
+    view\admin\reservation.blade.php
+        <!-- create new table and show data -->

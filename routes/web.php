@@ -31,6 +31,8 @@ Route::get('/Canceled/{id}',[AdminController::class,'Canceled']);
 
 //book table
 Route::post('/book_table',[HomeController::class,'book_table']);
+//reservation 
+Route::get('/reservation',[AdminController::class,'reservation']);
 
 
 //middleware
