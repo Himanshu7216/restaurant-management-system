@@ -223,3 +223,30 @@
 
     <!-- find total price using php openings and closing  -->
 
+13. Move data from one table to another
+
+    <!-- create new table 'cart' -->
+    php artisan make:model Order -m
+    <!-- add column name in Order.php and migrations 'create_orders_table' then migrate -->
+     php artisan migrate
+
+    <!-- create an form in my_cart.blade.php and set url 'confirm_order'  -->
+
+    <!-- create new route -->
+    Route::post('/confirm_order',[HomeController::class,'confirm_order']);
+
+    in confirm_order()
+        <!-- get user id if user logged in -->
+        $user_id = Auth()->user()->id; 
+        <!-- match cart->userid     =     Auth->user_id  -->
+        $cart = Cart::where('userid','=',$user_id)->get();
+
+        in foreach loop 
+        <!-- create new Order
+            get order names using request
+            get order names using cart
+            store in Order then save 
+
+            find cart id and delete -->
+            
+ 

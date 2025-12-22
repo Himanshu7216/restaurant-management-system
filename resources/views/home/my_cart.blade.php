@@ -18,6 +18,19 @@
             padding:10px;
             color:white;
         }
+        .div_center{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-top:50px;
+        }
+        label{
+            display:inline-block;
+            width:200px;
+        }
+        .field{
+            padding:20px;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -108,6 +121,32 @@
             @endforeach
         </table>
         <h1>Total Price : ${{$total_price}}</h1>
+    </div>
+
+    <div class="div_center">
+        <form action="{{url('confirm_order')}}" method="post">
+            @csrf
+            <div class="field">
+                <label for="">Name</label>
+                <input type="text" name="name"value="{{Auth()->user()->name}}">
+            </div>
+            <div class="field">
+                <label for="">Email</label>
+                <input type="text" name="email" value="{{Auth()->user()->email}}">
+            </div>
+            <div class="field">
+                <label for="">Phone</label>
+                <input type="number" name="phone" value="{{Auth()->user()->phone}}">
+            </div>
+            <div class="field">
+                <label for="">Address</label>
+                <textarea name="address" cols="23" rows="2" id="" >{{Auth()->user()->address}}</textarea>
+                
+            </div>
+            <div class="field">
+                <input type="submit" class="btn btn-info" onClick="alert('Your Order is in Progress..Thank You');" value="Confirm Order">
+            </div>
+        </form>
     </div>
 </body>
 </html>
