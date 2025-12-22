@@ -288,3 +288,15 @@
     in book_table()
         <!-- receive form data using request and add into 'Book' then redirect back -->
 
+17. Count total Rows and show it in the Admin Panel
+    in view\admin\sidebar.blade.php
+        <!-- set url 'home' to navigation -->
+
+    in view\admin\body.blade.php
+        <!-- show 'Total User', 'Total Food','Total Order','Total Deliverd' -->
+    go to home route where called index()
+        <!-- find total values with condition then return data with admin.index -->
+            total_user,       \       give  'usertype'='user'  from User table
+            total_food,        \      give  all from Food table
+            total_order,       /      give  all from Order table
+            total_deliverd    /       give 'delivery_status'='Deliverd' from Order table
