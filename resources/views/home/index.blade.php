@@ -16,7 +16,7 @@
     <!-- BLOG Section  -->
     @include('home.blog')
     <!-- REVIEWS Section  -->
-    @include('home.reviews')
+    <!-- @include('home.reviews') -->
     <!-- contact & footer section -->
     @include('home.footer')
 </body>
