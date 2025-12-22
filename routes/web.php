@@ -29,6 +29,8 @@ Route::get('/on_the_way/{id}',[AdminController::class,'on_the_way']);
 Route::get('/Delivered/{id}',[AdminController::class,'Delivered']);
 Route::get('/Canceled/{id}',[AdminController::class,'Canceled']);
 
+//book table
+Route::post('/book_table',[HomeController::class,'book_table']);
 
 
 //middleware

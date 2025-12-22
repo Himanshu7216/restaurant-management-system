@@ -274,3 +274,17 @@
         <!-- find order id -->
         <!-- change delivery_status then redirect back -->
 
+16. book a table 
+
+    <!-- create new table 'Book' -->
+    php artisan make:model Book -m
+    <!-- add column name in Book.php and migrations 'create_books_table' then migrate -->
+    php artisan migrate
+
+    <!-- create new form and add url 'book_table' -->
+    <!-- create new route -->
+    Route::post('/book_table',[HomeController::class,'book_table']);
+
+    in book_table()
+        <!-- receive form data using request and add into 'Book' then redirect back -->
+
