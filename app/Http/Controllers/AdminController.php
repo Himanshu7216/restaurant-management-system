@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Order;
+
 
 class AdminController extends Controller
 {
@@ -61,5 +63,10 @@ class AdminController extends Controller
 
         $data->save();
         return redirect('view_food');
+    }
+
+    public function orders(){
+        $data=Order::all();
+        return view('admin.order',compact('data'));
     }
 }

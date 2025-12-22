@@ -248,5 +248,16 @@
             store in Order then save 
 
             find cart id and delete -->
-            
+
+ 14. show data on Admin panel
  
+    admin\sidebar.blade.php
+        <!-- in foreach loop create table and add url 'orders' -->
+    <!-- create new route -->
+    Route::get('/orders',[AdminController::class,'orders']);
+
+    in orders()
+        <!-- get all data from table 'Order' -->
+        <!-- return admin.order with data-->
+    
+
