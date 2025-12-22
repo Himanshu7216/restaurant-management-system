@@ -24,8 +24,14 @@ Route::post('/confirm_order',[HomeController::class,'confirm_order']);
 
 Route::get('/orders',[AdminController::class,'orders']);
 
+// button routes
+Route::get('/on_the_way/{id}',[AdminController::class,'on_the_way']);
+Route::get('/Delivered/{id}',[AdminController::class,'Delivered']);
+Route::get('/Canceled/{id}',[AdminController::class,'Canceled']);
 
 
+
+//middleware
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

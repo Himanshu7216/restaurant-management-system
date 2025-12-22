@@ -250,7 +250,7 @@
             find cart id and delete -->
 
  14. show data on Admin panel
- 
+
     admin\sidebar.blade.php
         <!-- in foreach loop create table and add url 'orders' -->
     <!-- create new route -->
@@ -260,4 +260,17 @@
         <!-- get all data from table 'Order' -->
         <!-- return admin.order with data-->
     
+
+15. Change Status of Order for only Admin
+
+    <!-- add three buttons in orders table 'On The Way', 'Delivered', 'Canceled' -->
+    <!-- give Unique url to each other  -->
+    <!-- create new routes -->
+    Route::get('/on_the_way/{id}',[AdminController::class,'on_the_way']);
+    Route::get('/Delivered/{id}',[AdminController::class,'Delivered']);
+    Route::get('/Canceled/{id}',[AdminController::class,'Canceled']);
+
+    in on_the_way(),Delivered(),Canceled()
+        <!-- find order id -->
+        <!-- change delivery_status then redirect back -->
 
