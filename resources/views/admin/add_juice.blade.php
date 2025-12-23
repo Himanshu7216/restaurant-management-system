@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head> 
-    <base href="/public">
     @include('admin.css')
-        <style>
+    <style>
                 /* Wrapper */
         .juice-form-wrapper form{
             max-width: 600px;
@@ -64,6 +63,8 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(255,193,7,0.4);
         }
+
+
     </style>
   </head>
   <body>
@@ -72,41 +73,30 @@
     @include('admin.sidebar')
     <div class="page-content">
         <div class="page-header">
-            <div class="container-fluid">
-                                    <div class="juice-form-wrapper">
-
-            <form action="{{url('/edit_food/'.$food->id)}}" method="post" enctype="multipart/form-data"> 
+            <div class="juice-form-wrapper">
+             <form action="{{url('upload_juice')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="field">
-                    <label for="">Food Title</label>
-                    <input type="text" name="title" value="{{$food->title}}">
+                    <label for="">Juice Title</label>
+                    <input type="text" name="title" required>
                 </div>
                 <div class="field">
-                    <label for="">Food details</label>
-                    <textarea cols="50" rows="5" name="details" >{{$food->details}}</textarea>
+                    <label for="">Juice details</label>
+                    <textarea cols="50" rows="5" name="details" required></textarea>
                 </div>
                 <div class="field">
                     <label for="">Price</label>
-                    <input type="text" name="price" value="{{$food->price}}">
+                    <input type="text" name="price" required>
                 </div>
                 <div class="field">
-                    <label for="">Current Image</label>
-                    <img width="150" src="food_img/{{$food->image}}" alt="">
-                    
-                </div>
+                    <label for="">Image</label>
+                    <input type="file" name="img" required>
+                </div><br>
                 <div class="field">
-                    <label for="">Change Image</label>
-                    <input type="file" name="img">
-                    
-                </div>
-                <div class="field">
-                    <input type="submit" value="Update Food" class="btn btn-warning">
+                    <input type="submit" value="Add Food" class="btn btn-warning">
                 </div>
             </form>
-    </div>
-
-            
-        </div>
+            </div>
        </div>
     </div>
     @include('admin.js')

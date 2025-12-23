@@ -4,7 +4,7 @@
     <base href="/public">
     @include('admin.css')
         <style>
-                /* Wrapper */
+                        /* Wrapper */
         .juice-form-wrapper form{
             max-width: 600px;
             margin: 0px auto;
@@ -73,25 +73,24 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                                    <div class="juice-form-wrapper">
-
-            <form action="{{url('/edit_food/'.$food->id)}}" method="post" enctype="multipart/form-data"> 
+                <div class="juice-form-wrapper">
+            <form action="{{url('/edit_juice/'.$juice->id)}}" method="post" enctype="multipart/form-data"> 
                 @csrf
                 <div class="field">
-                    <label for="">Food Title</label>
-                    <input type="text" name="title" value="{{$food->title}}">
+                    <label for="">Juice Title</label>
+                    <input type="text" name="title" value="{{$juice->title}}">
                 </div>
                 <div class="field">
-                    <label for="">Food details</label>
-                    <textarea cols="50" rows="5" name="details" >{{$food->details}}</textarea>
+                    <label for="">Juice details</label>
+                    <textarea cols="50" rows="5" name="details" >{{$juice->details}}</textarea>
                 </div>
                 <div class="field">
                     <label for="">Price</label>
-                    <input type="text" name="price" value="{{$food->price}}">
+                    <input type="text" name="price" value="{{$juice->price}}">
                 </div>
                 <div class="field">
                     <label for="">Current Image</label>
-                    <img width="150" src="food_img/{{$food->image}}" alt="">
+                    <img width="150" src="juice_img/{{$juice->image}}" alt="">
                     
                 </div>
                 <div class="field">
@@ -100,12 +99,10 @@
                     
                 </div>
                 <div class="field">
-                    <input type="submit" value="Update Food" class="btn btn-warning">
+                    <input type="submit" value="Update Juice" class="btn btn-warning">
                 </div>
             </form>
-    </div>
-
-            
+        </div>         
         </div>
        </div>
     </div>

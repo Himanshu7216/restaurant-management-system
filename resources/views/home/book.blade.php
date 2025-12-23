@@ -4,20 +4,25 @@
 
             <form action="{{url('book_table')}}" method="post">
                 @csrf
-                <div class="row mb-5">
-                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+
+                <div class="row justify-content-center mb-5 g-3">
+                    <div class="col-md col-sm-6">
+                        <input type="text" name="name" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="Name">
+                    </div>
+                    <div class="col-md col-sm-6">
                         <input type="text" name="phone" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="Phone Number">
                     </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-                        <input type="number" name="n_guest" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="NUMBER OF GUESTS" max="20" min="0">
+                    <div class="col-md col-sm-6">
+                        <input type="number" name="n_guest" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="No. Of Guests">
                     </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <div class="col-md col-sm-6">
                         <input type="time" name="time" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="Time">
                     </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <div class="col-md col-sm-6">
                         <input type="date" name="date" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="Date">
                     </div>
                 </div>
+
                 <input type="submit" class="btn btn-lg btn-primary" id="rounded-btn" value="Book Table" />
                 
             </form>

@@ -33,13 +33,15 @@
 
             <table>
                 <tr>
-                    <th>Phone Number</th>
+                    <th>Customer Name</th>
+                    <th>Contact</th>
                     <th>No. Of Guest</th>
                     <th>Date</th>
                     <th>Time</th>
                 </tr>
                 @foreach($book as $book)
                 <tr>
+                    <td>{{$book->name}}</td>
                     <td>{{$book->phone}}</td>
                     <td>{{$book->guest}}</td>
                     <td>{{$book->date}}</td>

@@ -314,4 +314,36 @@
     view\admin\reservation.blade.php
         <!-- create new table and show data -->
 
-19. 
+19. Show Juice on Home page
+    <!-- create new table 'Juice' with column 'title','details','price','image' -->
+    in admin\sidebar add 'add juice' link and set url 'add_juice'
+
+    <!-- create new route -->
+    Route::get('/add_juice',[AdminController::class,'add_juice']);
+
+    in add_juice()
+        return view('admin.add_food')
+     <!-- create file \admin\add_food.blade.php and create new form like add_food.blade.php -->
+        <!-- set url to form 'upload_juice' and create new route  -->
+    Route::post('/upload_juice',[AdminController::class,'upload_juice']);
+
+    in upload_juice()
+        
+        <!-- get table 'Juice' data -->
+        <!-- get name of fields add assign value to data -->
+        <!-- redirect redirect-> back -->
+
+
+20 . show on table 'view juice'
+    create add Juice 
+
+    update juice
+
+    delete juice
+
+    show on home page blog section 
+    show in admin table 
+
+
+
+

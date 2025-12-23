@@ -16,7 +16,7 @@
                             <table class="table table-dark table-hover table-bordered align-middle text-center">
                                 <thead  class="table-secondary text-dark">
                                     <tr>
-                                        <th>Food Title</th>
+                                        <th>Juice Title</th>
                                         <th>Details</th>
                                         <th>Price</th>
                                         <th>Image</th>
@@ -25,20 +25,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($food_data as $food)
+                                    @foreach($juice_data as $juice)
 
                                     <tr>
-                                        <td>{{$food->title}}</td>
-                                        <td>{{$food->details}}</td>
-                                        <td>{{$food->price}}</td>
+                                        <td>{{$juice->title}}</td>
+                                        <td>{{$juice->details}}</td>
+                                        <td>{{$juice->price}}</td>
                                         <td>
-                                            <img  width="150" src="/food_img/{{$food->image}}">
+                                            <img  width="150" src="/juice_img/{{$juice->image}}">
                                         </td>
                                         <td>
-                                            <a class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this food item?')" href="{{url('/delete_food',$food->id)}}">Delete</a>
+                                            <a class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this food item?')" href="{{url('/delete_juice',$juice->id)}}">Delete</a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-warning" href="{{url('update_food',$food->id)}}">Update</a>
+                                            <a class="btn btn-warning" href="{{url('update_juice',$juice->id)}}">Update</a>
                                         </td>
                                     </tr>
                                     @endforeach
