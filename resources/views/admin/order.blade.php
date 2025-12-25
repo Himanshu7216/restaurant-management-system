@@ -3,30 +3,45 @@
   <head> 
     @include('admin.css')
     <style>
-        table{
-            border:1px solid skyblue;
-            margin:auto;
-            width: 1000px;
-        }
-        th{
-            color:white;
-            font-weight:bold;
-            font-size:18px;
-            text-align:center;
-            background-color:red;
-            padding:10px;
-        }
-        td{
-            color:white;
-            font-weight:bold;
-            text-align:center;
-            padding:10px;
-        }
+        .table-responsive{
+    width:100%;
+    overflow-x:auto;
+}
 
-        .statusBtn a{
-            margin:2px;
-            width:110px;
-        }
+.order-table{
+    width:100%;
+    min-width:1400px;   /* keeps all columns visible */
+    border-collapse: collapse;
+    border:1px solid skyblue;
+}
+
+.order-table th{
+    background:red;
+    color:white;
+    padding:12px;
+    white-space:nowrap;
+    font-size:16px;
+    text-align:center;
+}
+
+.order-table td{
+    color:white;
+    padding:12px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.order-table img{
+    width:120px;
+    border-radius:8px;
+}
+
+.statusBtn a{
+    display:block;
+    margin:5px 0;
+    width:120px;
+}
+
     </style>
   </head>
   <body>
@@ -36,8 +51,8 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-
-            <table>
+        <div class="table-responsive">
+            <table class="order-table">
                 <tr>
                     <th>Customer Name</th>
                     <th>Email</th>
@@ -58,10 +73,15 @@
                     <td>{{$data->phone}}</td>
                     <td>{{$data->address}}</td>
                     <td>{{$data->title}}</td>
-                    <td>{{$data->price}}</td>
+                    <td>{{$data->price}}$</td>
                     <td>{{$data->quantity}}</td>
                     <td>
-                        <img  width="100" src="food_img/{{$data->image}}" alt="">
+                        
+                        @if(file_exists(public_path('food_img/'.$data->image)))
+                        <img width="150" src="{{ asset('food_img/'.$data->image) }}" alt="">
+                    @elseif(file_exists(public_path('juice_img/'.$data->image)))
+                        <img width="150" src="{{ asset('juice_img/'.$data->image) }}" alt="">
+                    @endif
                     </td>
                     <td>{{$data->delivery_status}}</td>
                     <td class="statusBtn">
@@ -73,7 +93,7 @@
                 </tr>
                 @endforeach
             </table>
-            
+        </div>
         </div>
        </div>
     </div>

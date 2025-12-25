@@ -21,7 +21,7 @@
                         <div class="card bg-transparent border my-3 my-md-0">
                             <img height="200" src="food_img/{{$food->image}}" alt="template by DevCRID http://www.devcrud.com/" class="rounded-0 card-img-top mg-responsive">
                             <div class="card-body">
-                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{$food->price}}</a></h1>
+                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{$food->price}}$ </a></h1>
                                 <h4 class="pt20 pb20">{{$food->title}}</h4>
                                 <p class="text-white">{{$food->details}}</p>
                             </div>

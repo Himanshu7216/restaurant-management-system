@@ -98,7 +98,7 @@
                             <tr>
                                 <td>{{$food->id}}</td>
                                 <td>{{$food->title}}</td>
-                                <td>{{$food->price}}</td>
+                                <td>{{$food->price}}$</td>
                                 <td>
                                     <a href="{{url('table/foods',$food->id)}}" class="btn-more">More</a>
                                 </td>
@@ -125,7 +125,7 @@
                             <tr>
                                 <td>{{$juice->id}}</td>
                                 <td>{{$juice->title}}</td>
-                                <td>{{$juice->price}}</td>
+                                <td>{{$juice->price}}$</td>
                                 <td>
                                     <a href="{{url('table/drinks',$juice->id)}}" class="btn-more">More</a>
                                 </td>
