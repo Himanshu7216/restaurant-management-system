@@ -41,16 +41,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="{{url('home')}}">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('home#gallary')}}">Gallary</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#gallary">Gallary</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#book-table">Book-Table</a>
+                    <a class="nav-link" href="{{url('home#book-table')}}">Book-Table</a>
                 </li>
             </ul>
             <a class="navbar-brand m-auto" href="{{url('/')}}">
@@ -59,7 +57,7 @@
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{url('home#blog')}}">Food<span class="sr-only">(current)</span></a>
                 </li>
                 @if (Route::has('login'))
                     @auth
@@ -108,7 +106,12 @@
                 <td>${{$data->price}}</td>
                 <td>{{$data->quantity}}</td>
                 <td>
-                    <img width="150" src="food_img/{{$data->image}}" alt="">
+                    @if(file_exists(public_path('food_img/'.$data->image)))
+                        <img width="150" src="{{ asset('food_img/'.$data->image) }}" alt="">
+                    @elseif(file_exists(public_path('juice_img/'.$data->image)))
+                        <img width="150" src="{{ asset('juice_img/'.$data->image) }}" alt="">
+                    @endif
+
                 </td>
                 <td>
                     <a onClick="return confirm('Are you sure to delete these ?')" href="{{url('remove_cart',$data->id)}}" class="btn btn-danger">Remove</a>

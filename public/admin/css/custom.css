@@ -1,1 +1,68 @@
-/* your styles go here */
+/* ---------- REGISTER / LOGIN FORM FIX ---------- */
+
+/* container center & width control */
+.login-page .container {
+  max-width: 1100px;
+}
+
+/* form holder thoda compact */
+.login-page .form-holder {
+  margin: 30px auto;
+}
+
+/* left info panel spacing */
+.login-page .form-holder .info {
+  padding: 60px 40px;
+}
+
+/* right form panel spacing */
+.login-page .form-holder .form {
+  padding: 50px 40px;
+}
+
+/* input spacing fix */
+.form-group-material {
+  margin-bottom: 22px;
+}
+
+/* input height & font */
+.input-material {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+/* label thoda upar rahe */
+.label-material {
+  font-size: 14px;
+}
+
+/* checkbox section spacing */
+.terms-conditions {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+/* register button */
+#register,
+.btn.btn-primary {
+  padding: 10px 40px;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+/* login link spacing */
+.signup {
+  margin-left: 5px;
+}
+
+/* mobile responsiveness */
+@media (max-width: 991px) {
+  .login-page .form-holder .info {
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .login-page .form-holder .form {
+    padding: 40px 30px;
+  }
+}

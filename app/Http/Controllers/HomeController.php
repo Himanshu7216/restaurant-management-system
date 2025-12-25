@@ -14,7 +14,31 @@ use App\Models\Book;
 use Illuminate\support\Facades\Auth;
 use Illuminate\support\Str;
 class HomeController extends Controller
-{
+{   
+    public function registerForm(){
+        return view('auth.register');
+    }
+    public function logout(){
+        return redirect('home.index');
+    }
+
+    public function register(Request $request){
+
+        $user= new User;
+        $user->name= $request->name;
+        $user->email=$request->email;
+        $user->phone= $request->phone;
+        $user->address=$request->address;
+        $user->password=$request->password;
+
+        $user->save();
+        return redirect('login');
+
+        // redirect to login page
+        return redirect()->route('login')->with('status', 'Registration successful! Please login.');
+    }
+
+
     public function my_home(){
         $food_data= Food::all();
         $juice_data= Juice::all();
@@ -54,13 +78,27 @@ class HomeController extends Controller
 
 
     public function add_cart(Request $request,$id){
-        if(Auth::id()){             //check user id exist or not
-            $food=Food::find($id);  
-            $cart_title=$food_data->title;
-            $cart_details=$food_data->details;
-            $cart_price=Str::remove('$',$food_data->price);
-            $cart_image=$food_data->image;
-            $cart_quantity=$request->quantity;
+        if(Auth::id()){  
+
+            $food_data = Food::find($id);
+            $juice_data = Juice::find($id);
+
+            if($food_data){
+                $cart_title   = $food_data->title;
+                $cart_details = $food_data->details;
+                $cart_price   = Str::remove('$', $food_data->price);
+                $cart_image   = $food_data->image;
+                $cart_quantity=$request->quantity;
+            }elseif($juice_data){
+                $cart_title   = $juice_data->title;
+                $cart_details = $juice_data->details;
+                $cart_price   = Str::remove('$', $juice_data->price);
+                $cart_image   = $juice_data->image;
+                $cart_quantity=$request->quantity;
+            }else {
+                return redirect()->back()->with('error', 'Item not found');
+            }           
+
 
             $data= new Cart;
             $data->title=$cart_title;

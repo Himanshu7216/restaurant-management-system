@@ -33,7 +33,7 @@
                             <a class="nav-link" href="{{url('my_cart')}}">Cart</a>
                         </li>
 
-                        <form action="{{route('logout')}}" method="POST">
+                        <form action="{{url('logout')}}" method="POST">
                             @csrf
                             <input type="submit" value="Logout" class="btn btn-primary ml-xl-4">
                         </form>
@@ -41,10 +41,10 @@
                 @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link" href="{{ url('login') }}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            <a class="nav-link" href="{{ url('register') }}">Register</a>
                         </li>
                     @endauth
                 @endif
