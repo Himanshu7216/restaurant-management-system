@@ -20,8 +20,8 @@
                 </li>
             </ul>
             <a class="navbar-brand m-auto" href="{{url('/')}}">
-                <img src="assets/imgs/logo.svg" class="brand-img" alt="">
-                <span class="brand-txt">Food Hut</span>
+                <img src="assets/imgs/Urban_Bites_Logo.png" class="brand-img" alt="">
+                <span class="brand-txt">Urban Bites</span>
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -55,8 +55,8 @@
     <!-- header -->
     <header id="home" class="header">
         <div class="overlay text-white text-center">
-            <h1 class="display-2 font-weight-bold my-3">Food Hut</h1>
-            <h2 class="display-4 mb-5">Always fresh &amp; Delightful</h2>
+            <h1 class="display-2 font-weight-bold my-3">Urban Bites</h1>
+            <h2 class="display-4 mb-5">Delicious food, delivered with love.</h2>
             <a class="btn btn-lg btn-primary" href="#gallary">View Our gallary</a>
         </div>
     </header>

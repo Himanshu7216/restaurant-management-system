@@ -34,13 +34,16 @@ $(document).ready(function(){
 new WOW().init();
 
 function initMap() {
-    var uluru = {lat: 37.227837, lng: -95.700513};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: uluru
+    var location = { lat: 22.2589, lng: 73.2072 }; // Tarsali, near Legend Hotel, Vadodara
+
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
+        center: location
     });
+
     var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
+        position: location,
+        map: map,
+        title: "Urban Bites – Tarsali, Vadodara"
     });
- }
+}

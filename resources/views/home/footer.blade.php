@@ -5,12 +5,12 @@
                 <div id="map" style="width: 100%; height: 100%; min-height: 400px"></div>
             </div>
             <div class="col-md-6 px-5 has-height-lg middle-items">
-                <h3>FIND US</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, laboriosam doloremque odio delectus, sunt magnam laborum impedit molestiae, magni quae ipsum, ullam eos! Alias suscipit impedit et, adipisci illo quam.</p>
+                <h3>Find Us</h3>
+                <p>Visit Urban Bites and enjoy a vibrant dining experience with delicious food, friendly service, and a modern atmosphere.</p>
                 <div class="text-muted">
-                    <p><span class="ti-location-pin pr-3"></span> 12345 Fake ST NoWhere, AB Country</p>
-                    <p><span class="ti-support pr-3"></span> (123) 456-7890</p>
-                    <p><span class="ti-email pr-3"></span>info@website.com</p>
+                    <p><span class="ti-location-pin pr-3"></span>📍 Urban Bites, Tarsali Street, Vadodara, India</p>
+                    <p><span class="ti-support pr-3"></span> 📞 +91 63518 79011</p>
+                    <p><span class="ti-email pr-3"></span>📧 support@urbanbites.com</p>
                 </div>
             </div>
         </div>
@@ -21,21 +21,25 @@
         <div class="row">
             <div class="col-sm-4">
                 <h3>EMAIL US</h3>
-                <P class="text-muted">info@website.com</P>
+                <P class="text-muted">support@urbanbites.com</P>
             </div>
             <div class="col-sm-4">
                 <h3>CALL US</h3>
-                <P class="text-muted">(123) 456-7890</P>
+                <P class="text-muted">(+91) 63518 79011</P>
             </div>
             <div class="col-sm-4">
                 <h3>FIND US</h3>
-                <P class="text-muted">12345 Fake ST NoWhere AB Country</P>
+                <P class="text-muted">Urban Bites,Tarsali Street, Vadodara, India</P>
             </div>
         </div>
     </div>
     <div class="bg-dark text-light text-center border-top wow fadeIn">
-        <p class="mb-0 py-3 text-muted small">&copy; Copyright <script>document.write(new Date().getFullYear())</script> Made with <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com">DevCRUD</a></p>
-    </div>
+    <p class="mb-0 py-3 text-muted small">
+        &copy; <script>document.write(new Date().getFullYear())</script> Urban Bites. 
+        All Rights Reserved. Made with <i class="ti-heart text-danger"></i> for food lovers.
+    </p>
+</div>
+
     <!-- end of page footer -->
 
 	<!-- core  -->

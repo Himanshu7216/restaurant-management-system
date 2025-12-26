@@ -2,36 +2,7 @@
 <html lang="en">
 <head>
     @include('home.css')
-    <style>
-        table{
-            margin:40px;
-            border:1px solid skyblue;
-        }
-        th{
-            padding:10px;
-            text-align:center;
-            background:red;
-            color:white;
-            font-weight:bold;
-        }
-        td{
-            padding:10px;
-            color:white;
-        }
-        .div_center{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            margin-top:50px;
-        }
-        label{
-            display:inline-block;
-            width:200px;
-        }
-        .field{
-            padding:20px;
-        }
-    </style>
+
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
@@ -86,70 +57,100 @@
     </nav>
     <br><br><br><br>
     <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
-        <table>
-            <tr>
-                <th>Food Title</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Image</th>
-                <th>Remove</th>
-            </tr>
+        <div class="container mt-5 pt-5 text-light">
+            <div class="card bg-dark shadow-lg border-0">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">🛒 Your Cart</h3>
 
-            <?php
-                $total_price=0;
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered table-hover text-center align-middle">
+                            <tr class="table-danger text-dark">
+                                <th>Food</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                            
+                            <?php
+                                $total_price=0;
 
-            ?>
+                            ?>
 
-            @foreach($data as $data)
-            <tr>
-                <td>{{$data->title}}</td>
-                <td>${{$data->price}}</td>
-                <td>{{$data->quantity}}</td>
-                <td>
-                    @if(file_exists(public_path('food_img/'.$data->image)))
-                        <img width="150" src="{{ asset('food_img/'.$data->image) }}" alt="">
-                    @elseif(file_exists(public_path('juice_img/'.$data->image)))
-                        <img width="150" src="{{ asset('juice_img/'.$data->image) }}" alt="">
-                    @endif
+                            @foreach($data as $data)
+                            <tr>
+                                <td>{{$data->title}}</td>
+                                <td>${{$data->price}}</td>
+                                <td>{{$data->quantity}}</td>
+                                <td>
+                                    @if(file_exists(public_path('food_img/'.$data->image)))
+                                        <img src="{{ asset('food_img/'.$data->image) }}" class="img-fluid rounded" style="max-width:120px;">
+                                    @elseif(file_exists(public_path('juice_img/'.$data->image)))
+                                        <img src="{{ asset('juice_img/'.$data->image) }}" class="img-fluid rounded" style="max-width:120px;">
+                                    @endif
 
-                </td>
-                <td>
-                    <a onClick="return confirm('Are you sure to delete these ?')" href="{{url('remove_cart',$data->id)}}" class="btn btn-danger">Remove</a>
-                </td>
-            </tr>
-            <?php
-            $total_price=$total_price + $data -> price ;
-            ?>
+                                </td>
+                                <td>
+                                    <a onClick="return confirm('Are you sure to delete these ?')" href="{{url('remove_cart',$data->id)}}" class="btn btn-danger">Remove</a>
+                                </td>
+                            </tr>
 
-            @endforeach
-        </table>
-        <h1>Total Price : ${{$total_price}}</h1>
-    </div>
+                            <?php
+                            $total_price=$total_price + $data -> price ;
+                            ?>
 
-    <div class="div_center">
-        <form action="{{url('confirm_order')}}" method="post">
-            @csrf
-            <div class="field">
-                <label for="">Name</label>
-                <input type="text" name="name"value="{{Auth()->user()->name}}">
+                            @endforeach
+                        </table>
+                    </div>
+
+                    <h4 class="text-end mt-4 text-warning">
+                    Total Price: ${{$total_price}}
+                    </h4>
+                </div>
             </div>
-            <div class="field">
-                <label for="">Email</label>
-                <input type="text" name="email" value="{{Auth()->user()->email}}">
+        </div>
+
+        <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-dark text-light shadow-lg">
+                    <div class="card-body">
+                        <h4 class="text-center mb-4">🚚 Delivery Details</h4>
+
+                        <form action="{{url('confirm_order')}}" method="post">
+                            @csrf
+
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" value="{{Auth()->user()->name}}" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" value="{{Auth()->user()->email}}" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="number" name="phone" value="{{Auth()->user()->phone}}" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea name="address" class="form-control" rows="2">{{Auth()->user()->address}}</textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-success btn-lg"
+                                    onclick="alert('Your Order is in Progress... Thank You!')">
+                                    Confirm Order
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="field">
-                <label for="">Phone</label>
-                <input type="number" name="phone" value="{{Auth()->user()->phone}}">
-            </div>
-            <div class="field">
-                <label for="">Address</label>
-                <textarea name="address" cols="23" rows="2" id="" >{{Auth()->user()->address}}</textarea>
-                
-            </div>
-            <div class="field">
-                <input type="submit" class="btn btn-info" onClick="alert('Your Order is in Progress..Thank You');" value="Confirm Order">
-            </div>
-        </form>
-    </div>
-</body>
-</html>
+        </div>
+</div>
+
+
+    
+
+
+    

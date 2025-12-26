@@ -1,5 +1,5 @@
     <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
-        <h2 class="section-title">OUR MENU</h2>
+        <h2 class="section-title">Our Food Gallery</h2>
     </div>
     <div class="gallary row">
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">

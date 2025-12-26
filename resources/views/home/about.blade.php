@@ -4,11 +4,10 @@
             <div class="col-lg-6">
                 <div class="row justify-content-center">
                     <div class="col-sm-8 py-5 my-5">
-                        <h2 class="mb-4">About Us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, quisquam accusantium nostrum modi, nemo, officia veritatis ipsum facere maxime assumenda voluptatum enim! Labore maiores placeat impedit, vero sed est voluptas!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita alias dicta autem, maiores doloremque quo perferendis, ut obcaecati harum, <br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum necessitatibus iste,
-                        nulla recusandae porro minus nemo eaque cum repudiandae quidem voluptate magnam voluptatum? <br>Nobis, saepe sapiente omnis qui eligendi pariatur. quis voluptas. Assumenda facere adipisci quaerat. Illum doloremque quae omnis vitae.</p>
-                        <p><b>Lonsectetur adipisicing elit. Blanditiis aspernatur, ratione dolore vero asperiores explicabo.</b></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ab itaque modi, reprehenderit fugit soluta, molestias optio repellat incidunt iure sed deserunt nemo magnam rem explicabo vitae. Cum, nostrum, quidem.</p>
+                        <h2 class="mb-4">About Urban Bites</h2>
+                        <p>Urban Bites is your go-to destination for delicious, freshly prepared meals made with the finest ingredients.<br> We believe great food brings people together, and our mission is to serve happiness on every plate.</p>
+                        <p>From quick snacks to full meals, every dish at Urban Bites is prepared with passion, precision, and love.<br> We believe food should be exciting, satisfying, and made fresh every single day.</p>
+                        <p>Whether you are dining in, ordering online, or booking a table, Urban Bites promises a delicious experience that keeps you coming back.</p>
                     </div>
                 </div>
             </div>

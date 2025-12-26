@@ -67,13 +67,6 @@
                       <input id="password" type="password" name="password" required  autocomplete="current-password" data-msg="Please enter your password" class="input-material">
                       <label for="password" class="label-material" >{{ __('Password') }}</label>
 
-                    
-
-                  <div class="form-group terms-conditions mt-4 ">
-                      <input id="remember_me" name="remember" type="checkbox" required value="1"  class="checkbox-template">
-                      <label for="remember_me">{{ __('Remember me') }}</label>
-                    </div>
-
                     </div>
                     <button type="submit" class="btn btn-primary mb-4">Sign In</button>
                   </form>

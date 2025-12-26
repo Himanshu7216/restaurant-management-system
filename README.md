@@ -344,6 +344,7 @@
     show on home page blog section 
     show in admin table 
 
+21. more feature add it doesn't write here...
 
 
 
@@ -354,97 +355,73 @@
 
 
 
+<div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
+        <table>
+            <tr>
+                <th>Food Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th>Remove</th>
+            </tr>
 
+            <?php
+                $total_price=0;
 
+            ?>
 
-
-
-
-set table width to clear view on  screen. admin\order.blade.php: <!DOCTYPE html>
-<html>
-  <head> 
-    @include('admin.css')
-    <style>
-        table{
-            border:1px solid skyblue;
-            margin:auto;
-            width: 1000px;
-        }
-        th{
-            color:white;
-            font-weight:bold;
-            font-size:18px;
-            text-align:center;
-            background-color:red;
-            padding:10px;
-        }
-        td{
-            color:white;
-            font-weight:bold;
-            text-align:center;
-            padding:10px;
-        }
-
-        .statusBtn a{
-            margin:2px;
-            width:110px;
-        }
-    </style>
-  </head>
-  <body>
-    @include('admin.header')
-        
-    @include('admin.sidebar')
-    <div class="page-content">
-        <div class="page-header">
-            <div class="container-fluid">
-
-            <table>
-                <tr>
-                    <th>Customer Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Food Title</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Image</th>
-                    <th>Status</th>
-                    <th>change Status</th>
-                </tr>
-
-                @foreach($data as $data)
-                <tr>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->email}}</td>
-                    <td>{{$data->phone}}</td>
-                    <td>{{$data->address}}</td>
-                    <td>{{$data->title}}</td>
-                    <td>{{$data->price}}</td>
-                    <td>{{$data->quantity}}</td>
-                    <td>
-                        
-                        @if(file_exists(public_path('food_img/'.$data->image)))
+            @foreach($data as $data)
+            <tr>
+                <td>{{$data->title}}</td>
+                <td>${{$data->price}}</td>
+                <td>{{$data->quantity}}</td>
+                <td>
+                    @if(file_exists(public_path('food_img/'.$data->image)))
                         <img width="150" src="{{ asset('food_img/'.$data->image) }}" alt="">
                     @elseif(file_exists(public_path('juice_img/'.$data->image)))
                         <img width="150" src="{{ asset('juice_img/'.$data->image) }}" alt="">
                     @endif
-                    </td>
-                    <td>{{$data->delivery_status}}</td>
-                    <td class="statusBtn">
-                        <a onClick="return confirm('Are you sure to change this ?')" href="{{url('on_the_way',$data->id)}}" class="btn btn-info">On The Way</a>
-                        <a onClick="return confirm('Are you sure to change this ?')" href="{{url('Delivered',$data->id)}}" class="btn btn-warning">Delivered</a>
-                        <a onClick="return confirm('Are you sure to change this ?')" href="{{url('Canceled',$data->id)}}" class="btn btn-danger">Cancel</a>
-                    </td>
-                    
-                </tr>
-                @endforeach
-            </table>
-            
-        </div>
-       </div>
-    </div>
-    @include('admin.js')
-  </body>
-</html>
 
+                </td>
+                <td>
+                    <a onClick="return confirm('Are you sure to delete these ?')" href="{{url('remove_cart',$data->id)}}" class="btn btn-danger">Remove</a>
+                </td>
+            </tr>
+            <?php
+            $total_price=$total_price + $data -> price ;
+            ?>
+
+            @endforeach
+        </table>
+        <h1>Total Price : ${{$total_price}}</h1>
+    </div>
+
+    
+
+    <div class="div_center">
+        <form action="{{url('confirm_order')}}" method="post">
+            @csrf
+            <div class="field">
+                <label for="">Name</label>
+                <input type="text" name="name"value="{{Auth()->user()->name}}">
+            </div>
+            <div class="field">
+                <label for="">Email</label>
+                <input type="text" name="email" value="{{Auth()->user()->email}}">
+            </div>
+            <div class="field">
+                <label for="">Phone</label>
+                <input type="number" name="phone" value="{{Auth()->user()->phone}}">
+            </div>
+            <div class="field">
+                <label for="">Address</label>
+                <textarea name="address" cols="23" rows="2" id="" >{{Auth()->user()->address}}</textarea>
+                
+            </div>
+            <div class="field">
+                <input type="submit" class="btn btn-info" onClick="alert('Your Order is in Progress..Thank You');" value="Confirm Order">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

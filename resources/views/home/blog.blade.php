@@ -1,14 +1,14 @@
 
     <div id="blog" class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-        <h2 class="section-title py-5">EVENTS AT THE FOOD HUT</h2>
+        <h2 class="section-title py-5">Today’s Popular Bites</h2>
         <div class="row justify-content-center">
             <div class="col-sm-7 col-md-4 mb-5">
                 <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#foods" role="tab" aria-controls="pills-home" aria-selected="true">Foods</a>
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#foods" role="tab" aria-controls="pills-home" aria-selected="true">Food Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#juices" role="tab" aria-controls="pills-profile" aria-selected="false">Juices</a>
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#juices" role="tab" aria-controls="pills-profile" aria-selected="false">Drinks & Juices</a>
                     </li>
                 </ul>
             </div>
